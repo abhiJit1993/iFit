@@ -1,7 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { BrowserRouter } from 'react-router-dom';
+import App from './App'
+
+// import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import './index.css';
-import App from './App';
 import 'bootstrap/dist/css/bootstrap.min.css'; // to utilize all css classes of bootstrap
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 
@@ -30,12 +33,14 @@ const theme = createTheme({
 });
 
 root.render(
+  <BrowserRouter>
   <ThemeProvider theme={theme}>
-    <App />
-  </ThemeProvider>,
-  // <React.StrictMode>
-  //   <App />
-  // </React.StrictMode>
+    <App/>
+ 
+    </ThemeProvider>
+  </BrowserRouter>
+  
+    
 );
 
 

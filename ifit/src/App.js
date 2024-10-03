@@ -1,12 +1,17 @@
 import React from 'react';
+import { BrowserRouter as Router, Switch, Route, Routes, Link } from 'react-router-dom';
+
 import { Paper, Box } from '@mui/material';
 import Grid from '@mui/material/Grid';
 import Sidebar from './Sidebar/Sidebar';
 import Header from './Header/Header';
 import MainComponent from './Main/Main';
+import Home from './Pages/Home/Home';
+import Plans from './Pages/Plans/Plans';
 
 function App() {
   return (
+    <div>
     <Box sx={{ flexGrow: 1, padding: 2 }}>
       <Grid container spacing={1}>
         <Grid item xs={12}>
@@ -22,11 +27,20 @@ function App() {
 
             </Paper>
           </Grid>
-          <MainComponent />
+          <MainComponent>
+        
+
+          </MainComponent>
         </Grid>
 
       </Grid>
+      
     </Box>
+
+    </div>
+
+
+
   );
 }
 
