@@ -7,6 +7,10 @@ import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import { Paper } from '@mui/material';
+import useMediaQuery from '@mui/material/useMediaQuery'; // Corrected import
+import PostsIcon from '@mui/icons-material/Article';
+import EventsIcon from '@mui/icons-material/Event';
+import GalleryIcon from '@mui/icons-material/PhotoLibrary';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -41,16 +45,19 @@ function a11yProps(index) {
   };
 }
 
- function FullWidthTabs() {
+function FullWidthTabs() {
   const theme = useTheme();
   const [value, setValue] = React.useState(0);
+  
+  // Use media query for responsiveness
+  const isMobile = useMediaQuery('(max-width:450px)'); // Detects screen width less than 200px
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
 
   return (
-    <Box sx={{ bgcolor: 'background.paper', width: "auto" }}>
+    <Box sx={{ bgcolor: 'background.paper', width: 'auto' }}>
       <AppBar position="static">
         <Tabs
           value={value}
@@ -58,11 +65,12 @@ function a11yProps(index) {
           indicatorColor="secondary"
           textColor="inherit"
           variant="fullWidth"
+          orientation={isMobile ? "vertical" : "horizontal"} // Switch to vertical when screen width is less than 200px
           aria-label="full width tabs example"
         >
-          <Tab label="Posts" {...a11yProps(0)} />
-          <Tab label="Events" {...a11yProps(1)} />
-          <Tab label="Gallary" {...a11yProps(2)} />
+          <Tab icon={<PostsIcon />} label={!isMobile ? "Posts" : null} {...a11yProps(0)} />
+          <Tab icon={<EventsIcon />} label={!isMobile ? "Events" : null} {...a11yProps(1)} />
+          <Tab icon={<GalleryIcon />} label={!isMobile ? "Gallery" : null} {...a11yProps(2)} />
         </Tabs>
       </AppBar>
       <TabPanel value={value} index={0} dir={theme.direction}>
@@ -72,22 +80,20 @@ function a11yProps(index) {
         Events
       </TabPanel>
       <TabPanel value={value} index={2} dir={theme.direction}>
-        Gallary
+        Gallery
       </TabPanel>
     </Box>
   );
 }
 
-function Home (){
-return(
-  <div className='homepage'>
- <Paper style={{ padding: '20px', textAlign: 'center' ,backgroundColor:"none"}}>
+function Home() {
+  return (
+    <div className="homepage">
+      <Paper style={{ padding: '20px', textAlign: 'center', backgroundColor: 'none' }}>
         <FullWidthTabs className="Hometabs" />
-        </Paper>
-  </div>
-       
-
-)
- 
+      </Paper>
+    </div>
+  );
 }
+
 export default Home;
