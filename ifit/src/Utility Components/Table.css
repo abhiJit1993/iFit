@@ -1,0 +1,21 @@
+/* custom.css */
+.dark-table-container {
+    padding: 5px;
+    min-height: 100vh;
+  }
+  
+  .ant-table {
+    background-color: #1e1e1e !important;
+    color: #fff !important;
+  }
+  
+  .ant-table-thead > tr > th {
+    background-color: #444 !important;
+    color: #fff !important;
+  }
+  
+  .ant-table-tbody > tr > td {
+    background-color: #1e1e1e !important;
+    color: #fff !important;
+  }
+  
