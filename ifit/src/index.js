@@ -1,4 +1,5 @@
 import React from 'react';
+import { Provider } from 'react-redux';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import App from './App'
@@ -7,6 +8,7 @@ import App from './App'
 import './index.css';
 import 'bootstrap/dist/css/bootstrap.min.css'; // to utilize all css classes of bootstrap
 import { ThemeProvider, createTheme } from '@mui/material/styles';
+import store from './Store/store'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const theme = createTheme({
@@ -35,7 +37,10 @@ const theme = createTheme({
 root.render(
   <BrowserRouter>
   <ThemeProvider theme={theme}>
+    <Provider store={store}>
+
     <App/>
+    </Provider>
  
     </ThemeProvider>
   </BrowserRouter>

@@ -6,10 +6,14 @@ import Grid from '@mui/material/Grid';
 import Sidebar from './Sidebar/Sidebar';
 import Header from './Header/Header';
 import MainComponent from './Main/Main';
+
+import { useDispatch, useSelector } from 'react-redux';
 import Home from './Pages/Home/Home';
 import Plans from './Pages/Plans/Plans';
 
 function App() {
+
+  const theme = useSelector((state) => state.app.theme);
   return (
     <div>
     <Box sx={{ flexGrow: 1, padding: 2 }}>
@@ -22,7 +26,7 @@ function App() {
         <Grid container item xs={12} spacing={1}>
           <Grid item xs={3.5}>
             <Paper style={{ padding: '20px', textAlign: 'center' }}>
-
+{theme}
               <Sidebar />
 
             </Paper>
