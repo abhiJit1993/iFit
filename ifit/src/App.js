@@ -26,7 +26,7 @@ function App() {
         <Grid container item xs={12} spacing={1}>
           <Grid item xs={3.5}>
             <Paper style={{ padding: '20px', textAlign: 'center' }}>
-{theme}
+
               <Sidebar />
 
             </Paper>
