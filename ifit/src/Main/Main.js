@@ -7,9 +7,14 @@ import Settings from '../Pages/Settings/Settings';
 import Analytics from '../Pages/Analytics/Analytics';
 import Products from '../Pages/Products/Products';
 import Payments from '../Pages/Payments/Payments';
+
+import { useMediaQuery } from '@mui/material';
+
 function MainComponent() {
+  
+  const isSmallScreen = useMediaQuery('(max-width:600px)');
   return (
-<Grid item xs={8.5}>
+<Grid item xs={isSmallScreen ? 12 : 8.5}>
 
 <div style={{width:"auto"}}>
 

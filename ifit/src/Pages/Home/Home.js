@@ -13,6 +13,7 @@ import EventsIcon from '@mui/icons-material/Event';
 import GalleryIcon from '@mui/icons-material/PhotoLibrary';
 import VideocamIcon from '@mui/icons-material/Videocam';
 import ImageIcon from '@mui/icons-material/Image';
+import YouTube from 'react-youtube';
 
 import IFitImageList from '../../Utility Components/imageList';
 
@@ -52,12 +53,17 @@ function a11yProps(index) {
 function FullWidthTabs() {
   const theme = useTheme();
   const [value, setValue] = React.useState(0);
-  const [nestedValue, setNestedValue] = React.useState(0); // Use separate state for nested tabs
+  const [nestedValue, setNestedValue] = React.useState(0);
 
   const isMobile = useMediaQuery('(max-width:450px)');
+  const isSmallScreen = useMediaQuery('(max-width:800px)');
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
+  };
+
+  const onReady = (event) => {
+    event.target.pauseVideo(); // Pause the video when it's ready
   };
 
   const handleNestedChange = (event, newValue) => {
@@ -100,22 +106,19 @@ function FullWidthTabs() {
         </Tabs>
       </AppBar>
 
-      {/* Render posts panel */}
       <TabPanel value={value} index={0} dir={theme.direction}>
         Posts
       </TabPanel>
 
-      {/* Render events panel */}
       <TabPanel value={value} index={1} dir={theme.direction}>
         Events
       </TabPanel>
 
-      {/* Gallery with nested tabs */}
       <TabPanel value={value} index={2} dir={theme.direction}>
         <Box sx={{ bgcolor: 'background.paper', width: 'auto' }}>
           <AppBar position="static">
             <Tabs
-              value={nestedValue} // Controlled nested tabs
+              value={nestedValue}
               onChange={handleNestedChange}
               indicatorColor="secondary"
               textColor="inherit"
@@ -128,14 +131,46 @@ function FullWidthTabs() {
             </Tabs>
           </AppBar>
 
-          {/* Conditionally render the image list only when "Images" tab is active */}
           <TabPanel value={nestedValue} index={0} dir={theme.direction}>
-            <IFitImageList itemList={itemData} />
+            <IFitImageList itemList={itemData} columns={isSmallScreen ? 1 : 3} />
           </TabPanel>
 
-          {/* Conditionally render the video section only when "Videos" tab is active */}
           <TabPanel value={nestedValue} index={1} dir={theme.direction}>
-            Videos
+            <Box sx={{ width: '100%' }}> {/* Added this Box for width control */}
+              <YouTube
+                videoId="IJeSR-LJBnk"
+                opts={{
+                  height: isSmallScreen ? '200' : '375',
+                  width: '100%', // Set to 100% for full width
+                  playerVars: {
+                    autoplay: 0,
+                  },
+                }}
+                onReady={onReady}
+              />
+              <YouTube
+                videoId="IJeSR-LJBnk"
+                opts={{
+                  height: isSmallScreen ? '200' : '375',
+                  width: '100%', // Set to 100% for full width
+                  playerVars: {
+                    autoplay: 0,
+                  },
+                }}
+                onReady={onReady}
+              />
+              <YouTube
+                videoId="IJeSR-LJBnk"
+                opts={{
+                  height: isSmallScreen ? '200' : '375',
+                  width: '100%', // Set to 100% for full width
+                  playerVars: {
+                    autoplay: 0,
+                  },
+                }}
+                onReady={onReady}
+              />
+            </Box>
           </TabPanel>
         </Box>
       </TabPanel>

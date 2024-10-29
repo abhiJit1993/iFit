@@ -9,6 +9,12 @@
   .headerSection {
     text-align: center;
   }
+  .menu-icon {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    z-index: 1300;
+  }
   
   
   
