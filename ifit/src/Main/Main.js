@@ -14,9 +14,11 @@ function MainComponent() {
   
   const isSmallScreen = useMediaQuery('(max-width:600px)');
   return (
-<Grid item xs={isSmallScreen ? 12 : 8.5}>
+<Grid className='outerMain' item xs={isSmallScreen ? 12 : 8.5}>
 
-<div style={{width:"auto"}}>
+<div className="mainDiv"
+
+style={{width:isSmallScreen ? "auto" : "863px"}}>
 
 <Routes>
         <Route path="/" element={<Home />} />

@@ -42,7 +42,7 @@ function App() {
             </Grid>
           )}
 
-          <Grid container item xs={isSmallScreen ? 12 : 8.5} >
+          <Grid  className='main' container item xs={isSmallScreen ? 12 : 8.5} >
             <MainComponent />
           </Grid>
         </Grid>
