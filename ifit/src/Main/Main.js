@@ -11,14 +11,11 @@ import Payments from '../Pages/Payments/Payments';
 import { useMediaQuery } from '@mui/material';
 
 function MainComponent() {
-  
-  const isSmallScreen = useMediaQuery('(max-width:600px)');
   return (
-<Grid className='outerMain' item xs={isSmallScreen ? 12 : 8.5}>
 
 <div className="mainDiv"
 
-style={{width:isSmallScreen ? "auto" : "863px"}}>
+style={{width:"inherit"}}>
 
 <Routes>
         <Route path="/" element={<Home />} />
@@ -32,7 +29,6 @@ style={{width:isSmallScreen ? "auto" : "863px"}}>
 </div>
 
   
-</Grid>
   )
 }
 

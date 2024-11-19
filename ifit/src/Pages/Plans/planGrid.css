@@ -1,0 +1,66 @@
+.plan-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid with 3 columns */
+    gap: 1.5rem; /* Space between grid items */
+    padding: 1rem; /* Add padding around the grid */
+  }
+  
+  .plan-card {
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+ 
+  }
+  
+  .plan-card:hover {
+    transform: translateY(-5px); /* Slight hover effect */
+  }
+  
+  .plan-header {
+    background-color: #f3da87;
+  
+    font-weight: bold;
+    text-align: center;
+    padding: 0.5rem;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+  
+  .plan-price {
+    font-size: 1.5rem;
+    color: #333;
+    text-align: center;
+    margin-bottom: 0.5rem;
+  }
+  
+  .plan-description {
+    font-size: 0.9rem;
+    color: #555;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+  
+  .plan-discount {
+    font-size: 1rem;
+    font-weight: bold;
+    color: green;
+    text-align: center;
+    margin-bottom: 0.5rem;
+  }
+  
+  .subscribe-button {
+    display: block;
+    width: 80%;
+    margin: 0 auto;
+    background-color: #04a071;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  .subscribe-button:hover {
+    background-color: #0056b3;
+  }
+  

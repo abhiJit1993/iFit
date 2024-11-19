@@ -18,4 +18,51 @@
     background-color: #1e1e1e !important;
     color: #fff !important;
   }
+  .outer {
+    padding: 1rem;
+  }
+  
+  .dark-table-container {
+    overflow-x: auto; /* Enable horizontal scrolling */
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling for iOS */
+  }
+  
+  .ant-table {
+    min-width: 600px; /* Ensure table has a minimum width */
+  }
+  
+  @media (max-width: 576px) {
+    .ant-table-thead > tr > th,
+    .ant-table-tbody > tr > td {
+      font-size: 12px; /* Adjust font size for small screens */
+    }
+  }
+
+  .outer {
+    padding: 1rem; /* Add padding around the table */
+  }
+  
+  .dark-table-container {
+    overflow-x: auto; /* Enable horizontal scrolling */
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling for iOS devices */
+  }
+  
+  .ant-table {
+    min-width: 600px; /* Minimum table width */
+  }
+  
+  .ant-table-thead > tr > th,
+  .ant-table-tbody > tr > td {
+    text-align: center; /* Center-align table content */
+    white-space: nowrap; /* Prevent content from wrapping */
+  }
+  
+  @media (max-width: 576px) {
+    .ant-table-thead > tr > th,
+    .ant-table-tbody > tr > td {
+      font-size: 12px; /* Adjust font size for smaller screens */
+      padding: 8px; /* Reduce padding for smaller screens */
+    }
+  }
+  
   
