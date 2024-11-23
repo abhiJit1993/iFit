@@ -11,6 +11,8 @@ import Payments from '../Pages/Payments/Payments';
 import { useMediaQuery } from '@mui/material';
 
 function MainComponent() {
+
+  
   return (
 
 <div className="mainDiv"
