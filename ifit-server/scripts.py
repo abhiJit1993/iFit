@@ -352,37 +352,4 @@ VALUES
     db.close()
 
    
-    # Create a table
-    # db.create_table('Users', {
-    #     'id': 'INTEGER PRIMARY KEY AUTOINCREMENT',
-    #     'Name': 'TEXT NOT NULL',
-    #     'Email': 'TEXT NOT NULL UNIQUE',
-    #      'Email': 'TEXT NOT NULL UNIQUE'
-    # })
-
-
-
-    # # Insert data
-    # db.insert_data('users', {'username': 'john_doe', 'email': 'john@example.com'})
-    # db.insert_data('users', {'username': 'jane_doe', 'email': 'jane@example.com'})
-
-    # # View data
-    # users = db.view_data('users')
-    # print("Users:", users)
-
-    # # Update data
-    # db.update_data('users', {'email': 'john_new@example.com'}, {'username': 'john_doe'})
-
-    # # View updated data
-    # users = db.view_data('users')
-    # print("Updated Users:", users)
-
-    # # Delete data
-    # db.delete_data('users', {'username': 'jane_doe'})
-
-    # # View data after deletion
-    # users = db.view_data('users')
-    # print("Users after deletion:", users)
-
-    # Close the connection
   

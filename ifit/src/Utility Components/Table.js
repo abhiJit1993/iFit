@@ -16,8 +16,9 @@ function IFitTable(props) {
             responsive: true,
           }}
           scroll={{
-            x: 'max-content', // Ensure table scrolls horizontally when needed
+            x: 1000, // Ensure table scrolls horizontally when needed
           }}
+          sticky
         />
       </div>
     </div>
