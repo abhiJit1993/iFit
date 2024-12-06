@@ -19,10 +19,10 @@ function LoginForm() {
   };
 
   return (
-    <div className="d-flex justify-content-center align-items-center vh-100 bg-light">
-      <div className="card shadow-sm p-4" style={{ maxWidth: "400px", width: "100%" }}>
-        <h3 className="text-center mb-4">Login</h3>
-        <form onSubmit={handleLogin}>
+    <div className="d-flex justify-content-center align-items-center vh-100 bg-dark">
+      <div className="card shadow-sm p-4 bg-dark" style={{ maxWidth: "400px", width: "100%" }}>
+        <h3 className="text-center mb-4 "  style={{color:'white'}}>Login</h3>
+        <form onSubmit={handleLogin} style={{color:'white'}}>
           <div className="mb-3">
             <label htmlFor="email" className="form-label">Email address</label>
             <input
@@ -32,7 +32,7 @@ function LoginForm() {
               name="email"
               value={formData.email}
               onChange={handleChange}
-              placeholder="Enter your email"
+              placeholder="Enter your email or mobile number"
               required
             />
           </div>
