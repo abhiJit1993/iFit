@@ -25,6 +25,12 @@ function Sidebar() {
         </Link>
       </Paper>
       <Paper className={`sidebar-item ${active === 'plans' ? 'active' : ''}`}>
+        <Link to="/members" onClick={() => handleItemClick('members')}>
+          <AppstoreOutlined className="sidebar-icon" />
+          <span className="sidebar-text">Members</span>
+        </Link>
+      </Paper>
+      <Paper className={`sidebar-item ${active === 'plans' ? 'active' : ''}`}>
         <Link to="/plans" onClick={() => handleItemClick('plans')}>
           <AppstoreOutlined className="sidebar-icon" />
           <span className="sidebar-text">Plans</span>

@@ -2,7 +2,7 @@ import { Button } from "antd";
 import {useEffect} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import showNotification from "../../Utility Components/iFitNotification";
-import { setTheme } from '../../Store/Actions/appActions';
+import { setTheme ,setUser } from '../../Store/Actions/appActions';
 import axios from "axios"; 
 
 const showNot = (currentTheme) => {

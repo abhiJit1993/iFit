@@ -1,29 +1,23 @@
 import React, { useState, useEffect } from "react";
-import { Card, Container, Row, Col } from "react-bootstrap";
-import "./planGrid.css";
+import IFitTable from "../../Utility Components/Table";
 import planAPIService from "../../Services/planServices";
+import "./planGrid.css";
 
-const __getPlanCardStyle = (plan) => {
-  let style = {
-    text: "light",
-  };
+const __getPlanRowStyle = (plan) => {
   if (plan.PlanTypeId === 1) {
-    style.border = "#6c757d"; // Gray
-    style.backgroundColor = "#1f2937"; // Charcoal
+    return { backgroundColor: "#007bff", color: "white" };
   } else if (plan.PlanTypeId === 2) {
-    style.border = "#4caf50"; // Green
-    style.backgroundColor = "#2c3e50"; // Dark Blue-Gray
+    return { backgroundColor: "#ffc107", color: "black" };
   } else {
-    style.border = "#f39c12"; // Yellow-Orange
-    style.backgroundColor = "#34495e"; // Slate Gray
+    return { backgroundColor: "#17a2b8", color: "white" };
   }
-  return style;
 };
 
 function Plans() {
-  const [plans, setPlans] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [plans, setPlans] = useState([]); // State for data source
+  const [loading, setLoading] = useState(true); // State for loading indicator
 
+  // Fetch plans
   const _getPlans = async () => {
     try {
       const response = await planAPIService.getPlans();
@@ -31,68 +25,81 @@ function Plans() {
     } catch (e) {
       console.error(e);
     } finally {
-      setLoading(false);
+      setLoading(false); // Stop loading once data fetch is complete
     }
   };
 
   useEffect(() => {
-    setLoading(true);
+    setLoading(true); // Set loading to true when fetching data
     _getPlans();
-  }, []);
+  }, []); // Empty dependency array ensures it runs once on component mount
+
+  // Define table columns
+  const columns = [
+    {
+      title: "Name",
+      dataIndex: "Name",
+      key: "Name",
+      render: (text, record) => (
+        <span>{text}</span>
+      ),
+    },
+    {
+      title: "Price",
+      dataIndex: "Price",
+      key: "Price",
+      render: (price) => `$${price} / month`,
+    },
+    {
+      title: "Description",
+      dataIndex: "Description",
+      key: "Description",
+    },
+    {
+      title: "Discount",
+      dataIndex: "Discount",
+      key: "Discount",
+      render: (discount) => (discount ? `${discount}%` : "N/A"),
+    },
+    {
+      title: "Action",
+      key: "action",
+      render: (_, record) => (
+        <div>
+          <div style={{ 'float': 'left' }}>
+            <button
+              className="subscribe-button"
+              style={__getPlanRowStyle(record)}
+            >
+              Edit
+            </button>
+          </div >
+          <div style={{ 'float': 'right' }}>
+            <button
+              className="subscribe-button"
+              style={__getPlanRowStyle(record)}
+            >
+              Delete
+            </button>
+          </div>
+
+        </div>
+
+      ),
+    },
+  ];
 
   return (
-    <Container className="planpage">
-      <Row>
-        {plans.map((plan) => {
-          const cardStyles = __getPlanCardStyle(plan);
-
-          return (
-            <Col
-              key={plan.Id}
-              xs={12}
-              sm={12}
-              md={6}
-              lg={6}
-              xl={6}
-              className="mb-4"
-            >
-              <Card
-                className="plan-card"
-                style={{
-                  backgroundColor: cardStyles.backgroundColor,
-                  color: cardStyles.text,
-                  borderColor: cardStyles.border,
-                }}
-              >
-                <Card.Header
-                  className="plan-header"
-                  style={{
-                    backgroundColor: cardStyles.border,
-                    color: "white",
-                  }}
-                >
-                  {plan.Name}
-                </Card.Header>
-                <Card.Body>
-                  <Card.Title className="plan-price">
-                    ${plan.Price} / month
-                  </Card.Title>
-                  <Card.Text className="plan-description">
-                    {plan.Description}
-                  </Card.Text>
-                  {plan.discount && (
-                    <div className="plan-discount">
-                      Discount: {plan.Discount}%
-                    </div>
-                  )}
-                  <button className="subscribe-button">Subscribe Now</button>
-                </Card.Body>
-              </Card>
-            </Col>
-          );
-        })}
-      </Row>
-    </Container>
+    <div className="planpage">
+      <IFitTable
+        columns={columns}
+        dataSource={plans.map((plan) => ({
+          ...plan,
+          key: plan.Id, // AntD requires a unique key for each row
+        }))}
+        loading={loading}
+      />
+    </div>
   );
 }
 

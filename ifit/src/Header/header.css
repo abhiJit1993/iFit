@@ -1,0 +1,40 @@
+
+.mainlogo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+
+.logo-container {
+    display: inline-block;
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+    padding: 20px;
+    border: 3px solid #007bff; /* Blue border */
+    border-radius: 15px;
+    background-color: #1e1e2f; /* Dark background */
+    color: #fff; /* White text */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+}
+
+.logo-title {
+    font-size: 32px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    float: left;
+    color: #ffc107; /* Gold color for FlexFit */
+}
+
+.logo-subtitle {
+    font-size: 20px;
+    color: #17a2b8; /* Teal color for Manager */
+    margin-top: 5px;
+}
+
+.icon {
+    font-size: 40px;
+    color: #007bff; /* Blue for the icon */
+    margin-bottom: 10px;
+    float: right;
+}

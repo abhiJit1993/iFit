@@ -9,6 +9,7 @@ import Products from '../Pages/Products/Products';
 import Payments from '../Pages/Payments/Payments';
 
 import { useMediaQuery } from '@mui/material';
+import Members from '../Pages/Members/Members';
 
 function MainComponent() {
 
@@ -22,6 +23,8 @@ style={{width:"inherit"}}>
 <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/home" element={<Home />} />
+        <Route path="/members" element={<Members />} />
+
         <Route path="/plans" element={<Plans />} />
         <Route path="/settings" element={<Settings />} />
         <Route path="/payments" element={<Payments />} />
