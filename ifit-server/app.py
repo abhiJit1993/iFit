@@ -35,13 +35,16 @@ def FetchPlans():
     return pctrl.getPlans(planId)
 
 #---------------------------------------------------------XXXXXXXXX--------------
-#-------------------------------Login------------------------------
-@app.route('/api/login' ,methods=['POST'])
+#-------------------------------Auth------------------------------
+@app.route('/api/auth/login' ,methods=['POST','GET'])
 def Login():
     print(request.args)
-    planId =  request.args.get('planId') if request.args.get('planId') != "*"  else None
     
-    return pctrl.getPlans(planId)
+    userEmail = request.args.get('email')
+    password = request.args.get('password')
+
+    
+    return {'email'  :  'test@test.com'}
 
 
 

@@ -16,6 +16,7 @@ class SQLiteManager:
         self.conn.commit()
 
     def execute(self, query):
+        print(query)
         # columns_str = ", ".join([f"{col} {dtype}" for col, dtype in columns.items()])
         # query = f"CREATE TABLE IF NOT EXISTS {table_name} ({columns_str});"
         self.cursor.execute(query)
@@ -67,7 +68,7 @@ class SQLiteManager:
 
 # Example usage
 if __name__ == "__main__":
-    db = SQLiteManager('mydatabase.db')
+    db = SQLiteManager('iFit.db')
 
     create_User_Table_Query = """
     CREATE TABLE Users (
@@ -344,11 +345,9 @@ VALUES
     # for q in allInserts:
     #     print(q)
     #     db.execute(q)
-    db.execute("""INSERT INTO Roles (Id,Name) 
-VALUES 
-(1,'Member'),
-(2,'Admin'),
-(3,'SuperAdmin')""")
+
+
+    db.execute("""UPDATE   User_Role SET RoleId =  1 where RoleId = 0 """)
     db.close()
 
    

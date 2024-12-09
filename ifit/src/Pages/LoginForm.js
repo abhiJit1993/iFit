@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import authAPIService from "../Services/authServices";
 
 function LoginForm() {
   const [formData, setFormData] = useState({ email: "", password: "" });
@@ -11,6 +12,13 @@ function LoginForm() {
   const handleLogin = (e) => {
     e.preventDefault();
     console.log("Login data submitted:", formData);
+    authAPIService.validateLogin(formData).then((userData)=>{
+console.log(userData)
+    },(loginError)=>{
+      console.log(loginError)
+
+    })
+
   };
 
   const handleSSO = (provider) => {
@@ -49,7 +57,7 @@ function LoginForm() {
               required
             />
           </div>
-          <button type="submit" className="btn btn-primary w-100">Login</button>
+          <button type="submit" className="btn btn-primary w-100" >Login</button>
         </form>
         <hr className="my-4" />
         <div className="text-center">

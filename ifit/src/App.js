@@ -16,7 +16,6 @@ function App() {
   const user = useSelector((state)=> state.app.user);
   console.log('User----',user)
   const isSmallScreen = useMediaQuery('(max-width:600px)');
-  const loginForm = "<div>Login FORM</div>"
   const toggleSidebar = () => {
     setSidebarOpen(!isSidebarOpen);
   };

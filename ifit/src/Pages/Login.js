@@ -1,19 +1,23 @@
 import { useState } from "react";
 import IFitModal from "../Utility Components/Modal";
 import LoginForm from "./LoginForm";
+import { setUser } from '../Store/Actions/appActions';
+import { useDispatch, useSelector } from 'react-redux';
 
 
 function Login() {
   
 const [isModalVisible, setIsModalVisible] = useState(true);
-    const handleOk = () => {
-        console.log('Ok clicked');
-        setIsModalVisible(false);
-      };
-      
-      const handleCancel = () => {
-        console.log('Cancel clicked');
-        setIsModalVisible(false)
+const dispatch = useDispatch();
+const currentUser = useSelector((state => state.app.user));
+
+ 
+
+      const handleLogin =() =>{
+        alert('Login details')
+        dispatch(setUser(currentUser)); 
+        
+        // setIsModalVisible(false);
       }
   return (
     <div className="loginpage">
