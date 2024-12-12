@@ -13,6 +13,16 @@ function IFitModal(props) {
             maskClosable={props.maskClosable ? props.maskClosable : false}
             footer={props.footer ? props.footer : null}
             closable={false}
+            width="auto" // Set width to auto
+            bodyStyle={{
+              maxWidth: "100%", // Adjust max-width to prevent overflow
+              overflow: "auto", // Allow scroll for long content
+              padding: "16px", // Add padding
+            }}
+            style={{
+              display: "flex",
+              justifyContent: "center",
+            }}
         >
             <div>
 
