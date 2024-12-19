@@ -1,10 +1,9 @@
-import { Button, Icon, notification, Divider } from 'antd';
+import { Button, Icon, notification, Divider, message } from 'antd';
 
-const showNotification = (type , placement) => {
+const showNotification = (type , placement, message,description) => {
 notification[type]({
-    message: `iFit Notification`,
-    description:
-      'This is the content of the notification. This is the content of the notification. This is the content of the notification.',
+    message,
+    description,
     placement,
 })
 }

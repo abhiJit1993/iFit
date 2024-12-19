@@ -4,13 +4,14 @@ import LoginForm from "./LoginForm";
 import { setUser } from '../Store/Actions/appActions';
 import authAPIService from "../Services/authServices";
 import { useDispatch, useSelector } from 'react-redux';
+import showNotification from "../Utility Components/iFitNotification";
+import browserService from '../Services/browserService'
 
 
 function Login() {
   
 const [isModalVisible, setIsModalVisible] = useState(true);
 const dispatch = useDispatch();
-const currentUser = useSelector((state => state.app.user));
 const [formData, setFormData] = useState({ email: "", password: "" });
 
 
@@ -23,10 +24,17 @@ const handleLogin = (e) => {
   e.preventDefault();
   console.log("Login data submitted:", formData);
   authAPIService.validateLogin(formData).then((userData)=>{
-console.log(userData)
-  },(loginError)=>{
-    console.log(loginError)
+  console.log(userData)
+  dispatch(setUser(userData))
+  setIsModalVisible(false)
+  showNotification('success', 'topRight','Login Successful !!','Your Login is Successful.');
+  browserService.setCookies('IFlexToken','userData.data')
 
+}
+  ,(loginError)=>{
+    console.log(loginError)
+    setIsModalVisible(false)
+    showNotification('error', 'topRight','Login Failed !!','Invalid Credentials.');
   })
 
 };
@@ -97,22 +105,10 @@ const LoginBody = (
 
  
 
-      // const handleLogin =() =>{
-      //   alert('Login details')
-      //   dispatch(setUser(currentUser)); 
-        
-      //   // setIsModalVisible(false);
-      // }
   return (
     <div className="loginpage">
-     <IFitModal
-       
-      isOpen={isModalVisible}
-    
-      show={true}
-      //  footer={null}
-      //  Component ={LoginForm}
-      //  maskClosable={false}
+     <IFitModal 
+      show={isModalVisible}
       title = {"Login"}
       body =  {LoginBody}
        

@@ -38,3 +38,26 @@
     margin-bottom: 10px;
     float: right;
 }
+.mainlogo .logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.icon {
+    font-size: 24px;
+}
+
+.logo-title {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.logo-subtitle {
+    font-size: 14px;
+    color: gray;
+}
+
+.avatar-button {
+    margin-left: auto;
+}
+

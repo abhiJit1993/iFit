@@ -6,7 +6,7 @@ import { setTheme ,setUser } from '../../Store/Actions/appActions';
 import axios from "axios"; 
 
 const showNot = (currentTheme) => {
-  showNotification('error', 'bottomRight');
+  showNotification('error', 'bottomRight','Test Message','Test Desc');
 }
 
 function Analytics() {
