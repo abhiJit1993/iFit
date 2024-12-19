@@ -3,11 +3,11 @@ const authAPIService = {
 
 
 
-    validateLogin: (user) => {
-
+    validateLogin: (userCreds) => {
+console.log(userCreds)
         return new Promise((resolve, reject) => {
         
-            apiService.get('auth/login', { user  })
+            apiService.get('auth/login', { email: userCreds.email, password: userCreds.password  })
                 .then(response => {
                     resolve(response.data)
                 })

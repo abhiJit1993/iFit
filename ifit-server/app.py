@@ -1,7 +1,8 @@
-from flask import Flask, jsonify, request ,g
+from flask import Flask, jsonify, request ,g , json, Response
 from flask_cors import CORS
 
 from Controller import PlanController as pctrl
+from Controller import AuthController as authCtrl
 
 app = Flask(__name__)
 
@@ -41,10 +42,13 @@ def Login():
     print(request.args)
     
     userEmail = request.args.get('email')
-    password = request.args.get('password')
+    password = request.args.get('password') 
 
-    
-    return {'email'  :  'test@test.com'}
+    print(userEmail,password)
+    user =  authCtrl.validateUserCredentials(userEmail,password)
+    if len(user['userDetails'])==0:
+        return Response("Invalid Credentials.", 401)
+    return {"data" : user['userDetails']}
 
 
 

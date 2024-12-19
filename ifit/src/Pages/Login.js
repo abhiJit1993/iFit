@@ -38,7 +38,7 @@ const handleSSO = (provider) => {
 const LoginBody = (
   <div className="p-4" style={{ maxWidth: "400px", margin: "auto" }}>
     <h2 className="text-center mb-4" style={{ fontWeight: "bold", color: "#333" }}>Welcome</h2>
-    <p className="text-center mb-4" style={{ color: "#666" }}>Login to continue</p>
+    <p className="text-center mb-4" style={{ color: "#666" }}>Please Login to continue</p>
     <form onSubmit={handleLogin}>
       <div className="mb-3">
         <label htmlFor="email" className="form-label" style={{ fontWeight: "500" }}>Email Address</label>
