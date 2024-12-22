@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState , useEffect} from 'react';
 import { Box, Grid, IconButton, Drawer, Paper } from '@mui/material';
 import { useSelector } from 'react-redux';
 import MenuIcon from '@mui/icons-material/Menu';
@@ -10,7 +10,15 @@ import Login from './Pages/Login';
 import browserService from './Services/browserService';
 
 function App() {
+  useEffect(() => {
+    const screenWidth = window.innerWidth;
+    const screenHeight = window.innerHeight;
+    console.log('ScreenWidth ::',screenWidth,screenHeight)
+    const newWidth = screenWidth * 0.8;
+    const newHeight = screenHeight * 0.8;
 
+    window.resizeTo(newWidth, newHeight);
+  }, []);
   const [isSidebarOpen, setSidebarOpen] = useState(false);
   const user = useSelector((state) => state.app.user) || browserService.getCookies('IFlexToken');
   const isSmallScreen = useMediaQuery('(max-width:600px)');

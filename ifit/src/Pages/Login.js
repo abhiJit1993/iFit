@@ -38,69 +38,99 @@ const handleLogin = (e) => {
   })
 
 };
-
+const handleOTPLogin =()=>{
+  alert('hi')
+}
+const handleSignup =()=>{
+  alert('hi')
+}
 const handleSSO = (provider) => {
   console.log(`Logging in with ${provider}`);
   // Implement SSO logic for providers here
 };
 const LoginBody = (
-  <div className="p-4" style={{ maxWidth: "400px", margin: "auto" }}>
-    <h2 className="text-center mb-4" style={{ fontWeight: "bold", color: "#333" }}>Welcome</h2>
-    <p className="text-center mb-4" style={{ color: "#666" }}>Please Login to continue</p>
-    <form onSubmit={handleLogin}>
-      <div className="mb-3">
-        <label htmlFor="email" className="form-label" style={{ fontWeight: "500" }}>Email Address</label>
-        <input
-          type="email"
-          className="form-control shadow-sm"
-          id="email"
-          name="email"
-          value={formData.email}
-          onChange={handleChange}
-          placeholder="Enter your email or mobile number"
-          required
-          style={{ borderRadius: "8px" }}
-        />
-      </div>
-      <div className="mb-3">
-        <label htmlFor="password" className="form-label" style={{ fontWeight: "500" }}>Password</label>
-        <input
-          type="password"
-          className="form-control shadow-sm"
-          id="password"
-          name="password"
-          value={formData.password}
-          onChange={handleChange}
-          placeholder="Enter your password"
-          required
-          style={{ borderRadius: "8px" }}
-        />
-      </div>
-      <button type="submit" className="btn btn-primary w-100 shadow-sm" style={{ borderRadius: "8px", fontWeight: "500" }}>Login</button>
-    </form>
-    <hr className="my-4" />
-    <div className="text-center">
-      <p style={{ color: "#666", fontWeight: "500" }}>Or login with</p>
-      <div className="d-flex justify-content-between mt-3">
-        <button
-          type="button"
-          className="btn btn-danger shadow-sm"
-          style={{ borderRadius: "8px", width: "48%" }}
-          onClick={() => handleSSO("Google")}
-        >
-          Google
-        </button>
-        <button
-          type="button"
-          className="btn btn-primary shadow-sm"
-          style={{ borderRadius: "8px", width: "48%" }}
-          onClick={() => handleSSO("Facebook")}
-        >
-          Facebook
-        </button>
-      </div>
+  <div className="p-4" style={{ maxWidth: "400px", margin: "auto", backgroundColor: "#f9f9f9", borderRadius: "12px", boxShadow: "0 4px 6px rgba(0,0,0,0.1)" }}>
+  <h2 className="text-center mb-4" style={{ fontWeight: "bold", color: "#333" }}>Welcome</h2>
+  <p className="text-center mb-4" style={{ color: "#666" }}>Please Login to continue</p>
+  <form onSubmit={handleLogin}>
+    <div className="mb-3">
+      <label htmlFor="email" className="form-label" style={{ fontWeight: "500" }}>Email Address</label>
+      <input
+        type="email"
+        className="form-control shadow-sm"
+        id="email"
+        name="email"
+        value={formData.email}
+        onChange={handleChange}
+        placeholder="Enter your email or mobile number"
+        required
+        style={{ borderRadius: "8px" }}
+      />
+    </div>
+    <div className="mb-3">
+      <label htmlFor="password" className="form-label" style={{ fontWeight: "500" }}>Password</label>
+      <input
+        type="password"
+        className="form-control shadow-sm"
+        id="password"
+        name="password"
+        value={formData.password}
+        onChange={handleChange}
+        placeholder="Enter your password"
+        required
+        style={{ borderRadius: "8px" }}
+      />
+    </div>
+    <button type="submit" className="btn btn-primary w-100 shadow-sm" style={{ borderRadius: "8px", fontWeight: "500" }}>Login</button>
+  </form>
+  
+  <div className="d-flex justify-content-between mt-3">
+    <button
+      type="button"
+      className="btn btn-outline-secondary w-100 shadow-sm"
+      style={{ borderRadius: "8px", fontWeight: "500" }}
+      onClick={handleOTPLogin}
+    >
+      Login with OTP
+    </button>
+  </div>
+
+  <div className="d-flex justify-content-between mt-3">
+    <button
+      type="button"
+      className="btn btn-outline-success w-100 shadow-sm"
+      style={{ borderRadius: "8px", fontWeight: "500" }}
+      onClick={handleSignup}
+    >
+      Sign Up
+    </button>
+  </div>
+
+  <hr className="my-4" />
+
+  <div className="text-center">
+    <p style={{ color: "#666", fontWeight: "500" }}>Or login with</p>
+    <div className="d-flex justify-content-between mt-3">
+      <button
+        type="button"
+        className="btn btn-danger shadow-sm"
+        style={{ borderRadius: "8px", width: "48%" }}
+        onClick={() => handleSSO("Google")}
+      >
+        Google
+      </button>
+      <button
+        type="button"
+        className="btn btn-primary shadow-sm"
+        style={{ borderRadius: "8px", width: "48%" }}
+        onClick={() => handleSSO("Facebook")}
+      >
+        Facebook
+      </button>
     </div>
   </div>
+</div>
+
 );
 
  
