@@ -345,9 +345,33 @@ VALUES
     # for q in allInserts:
     #     print(q)
     #     db.execute(q)
+    createVendorTable = """
+
+CREATE TABLE Vendors (
+    VendorId INTEGER PRIMARY KEY AUTOINCREMENT,  -- Unique ID for the vendor
+    VendorName TEXT NOT NULL,                    -- Vendor's name (text field)
+    Logo BLOB,                                   -- Vendor's logo (could be stored as a binary large object)
+    City TEXT,                                   -- City where the vendor is located
+    FullAddress TEXT,                            -- Full address of the vendor (text field)
+    PinCode TEXT                                 -- Pin code (text for handling different formats)
+);
 
 
-    db.execute("""UPDATE   User_Role SET RoleId =  1 where RoleId = 0 """)
+"""
+    insertVendors = """
+
+
+
+
+
+"""
+
+    db.execute("""
+
+INSERT INTO Vendors (VendorName, Logo, City, FullAddress, PinCode)
+VALUES ("FlexZone Fitness", NULL, "Chicago", "789 Flex St, Chicago, IL", "60001");
+
+""")
     db.close()
 
    
