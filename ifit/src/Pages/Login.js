@@ -87,7 +87,7 @@ const LoginBody = (
   <div className="d-flex justify-content-between mt-3">
     <button
       type="button"
-      className="btn btn-outline-secondary w-100 shadow-sm"
+      className="btn btn-outline-success w-100 shadow-sm"
       style={{ borderRadius: "8px", fontWeight: "500" }}
       onClick={handleOTPLogin}
     >
@@ -96,22 +96,22 @@ const LoginBody = (
   </div>
 
   <div className="d-flex justify-content-between mt-3">
-    <button
+    {/* <button
       type="button"
       className="btn btn-outline-success w-100 shadow-sm"
       style={{ borderRadius: "8px", fontWeight: "500" }}
       onClick={handleSignup}
     >
       Sign Up
-    </button>
+    </button> */}
   </div>
 
   <hr className="my-4" />
 
   <div className="text-center">
-    <p style={{ color: "#666", fontWeight: "500" }}>Or login with</p>
+    {/* <p style={{ color: "#666", fontWeight: "500" }}>Or login with</p> */}
     <div className="d-flex justify-content-between mt-3">
-      <button
+      {/* <button
         type="button"
         className="btn btn-danger shadow-sm"
         style={{ borderRadius: "8px", width: "48%" }}
@@ -126,7 +126,7 @@ const LoginBody = (
         onClick={() => handleSSO("Facebook")}
       >
         Facebook
-      </button>
+      </button> */}
     </div>
   </div>
 </div>
