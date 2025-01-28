@@ -20,8 +20,8 @@ function Plans() {
   // Fetch plans
   const _getPlans = async () => {
     try {
-      const response = await planAPIService.getPlans();
-      setPlans(response);
+      const response = await planAPIService.getPlans();     
+       setPlans(response);
     } catch (e) {
       console.error(e);
     } finally {
@@ -46,9 +46,9 @@ function Plans() {
     },
     {
       title: "Price",
-      dataIndex: "Price",
-      key: "Price",
-      render: (price) => `$${price} / month`,
+      dataIndex: "Plan_Charges",
+      key: "Plan_Charges",
+      render: (Plan_Charges) => `$${Plan_Charges} / month`,
     },
     {
       title: "Description",

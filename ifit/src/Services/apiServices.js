@@ -1,21 +1,21 @@
 import axios from 'axios';
 
-const BASE_URL ="https://reimagined-tribble-pp67x7pj9q73rxg-5000.app.github.dev/api/"
+const BASE_URL = "https://reimagined-tribble-pp67x7pj9q73rxg-5000.app.github.dev/api/";
 
 const axiosInstance = axios.create({
-  baseURL:BASE_URL, // Set your API base URL in environment variables
-  timeout: 10000, // Set a timeout for requests (optional)
+  baseURL: BASE_URL,
+  timeout: 10000,
   headers: {
     'Content-Type': 'application/json',
+    'Access-Control-Allow-Origin': '*',  // Ensure this header is set
   },
-  withCredentials: true, 
+  withCredentials: true, // Allows sending cookies (if needed)
 });
 
-// Interceptors for request
+// Request Interceptor
 axiosInstance.interceptors.request.use(
   (config) => {
-    // You can modify the config, e.g., add Authorization headers if needed
-    const token = localStorage.getItem('token'); // Get token from local storage (or other source)
+    const token = localStorage.getItem('IFlexToken'); // Get token from local storage
     if (token) {
       config.headers['Authorization'] = `Bearer ${token}`;
     }
@@ -24,17 +24,16 @@ axiosInstance.interceptors.request.use(
   (error) => Promise.reject(error)
 );
 
-// Interceptors for response
+// Response Interceptor
 axiosInstance.interceptors.response.use(
   (response) => response,
   (error) => {
-    // Handle global error scenarios
-    console.error(error);
+    console.error("API Error:", error);
     return Promise.reject(error);
   }
 );
 
-// Generic service functions
+// Generic API functions
 const apiService = {
   get: (url, params = {}, config = {}) =>
     axiosInstance.get(url, { params, ...config }),
